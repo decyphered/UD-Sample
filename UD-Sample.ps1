@@ -88,6 +88,30 @@ $AllUsersEndpoint = New-UDEndpoint -Schedule $Schedule -Endpoint {
 
 #endregion   
 
+#region begin ByDepartment
+
+    $Departments = $Cache:AllUsers | Select-Object -expandProperty Department -Unique | Sort 
+    $ByDepartment = $null
+    $ByDepartment = New-Object System.Collections.ArrayList
+    
+    Foreach ($Department in $Departments){
+    
+        $DepCount = @($Cache:AllUsers | Where -Property Department -eq $Department).count
+
+        $Counter = [PSCustomObject]@{
+            
+        'Employees' = $($DepCount);
+        'Department' = $Department;
+        }
+    
+    
+        $ByDepartment.add($Counter)
+    }
+
+    $Cache:ByDepartment = $ByDepartment
+
+#endregion
+
 #region begin ConsultantsByDepartment
 
     $ConsultantDepartments = $Cache:AllConsultants | Select-Object -expandProperty Department -Unique | Sort 
@@ -301,7 +325,7 @@ $ConsultantPage = New-UDPage -Name "Consultants Page" -Content {
                                 display = $false  
                             }
                         }
-                        New-UDChart -Title "Distribution of Consultants" -Type Doughnut -AutoRefresh -RefreshInterval 5 -Endpoint {
+                        New-UDChart -Title "Distribution of Consultants by location" -Type Doughnut -AutoRefresh -RefreshInterval 5 -Endpoint {
                             $Cache:OfficeConsultants | Out-UDChartData -DataProperty "Consultants" -LabelProperty "Office" -BackgroundColor $ChartDataColour -BorderColor $ChartBorderColour -HoverBackgroundColor $ChartHighlightColour -HoverBorderColor $ChartBorderColour
                         } -Options @{  
                             legend = @{  
