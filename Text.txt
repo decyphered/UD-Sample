@@ -1,7 +1,0 @@
-This sample requires .net 4.7.2 the ActiveDirectory Module, as well as Universal Dashboard Community edition (or enterprise if you have that).
-
-## Community
-Install-Module UniversalDashboard.community -AcceptLicense -force
-
-## Non-community
-Install-Module UniversalDashboard -AcceptLicense -force
