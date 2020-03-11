@@ -9,11 +9,11 @@ Universal Dashboard
 ```
 
 ## Install commands 
-Community:
+### Community:
 ```
 Install-Module UniversalDashboard.community -AcceptLicense -force
 ```
-Non-community:
+### Non-community:
 ```
 Install-Module UniversalDashboard -AcceptLicense -force
 ```
