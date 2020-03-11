@@ -2,7 +2,9 @@
 Simple sample of some stuff that can be done with Universal Dashboard
 
 ## Requirements:
-# .Net 4.7.2
+```
+.Net 4.7.2
+```
 # ActiveDirectory Module
 # Universal Dashboard
 
