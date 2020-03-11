@@ -3,11 +3,11 @@
 
 
 #Servers to pull Performance counters from (besides Localhost) - https://docs.universaldashboard.io/components/monitors
-$ServerOne = "DKESBPosh01"
-$ServerTwo = "DKESBPoshUD01"
+#$ServerOne = "DKESBPosh01"
+#$ServerTwo = "DKESBPoshUD01"
 
 ###
-# set the overal appearance of the dashboard -  https://docs.universaldashboard.io/themes
+# set the overal appearance of the dashboard -  https://docs.universaldashboard.io/look-and-feel/themes
 $theme = Get-UDTheme Azure 
 
 #region begin Scheduler
